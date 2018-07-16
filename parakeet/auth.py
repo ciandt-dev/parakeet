@@ -5,6 +5,7 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
+import time
 
 from parakeet.lettuce_logger import LOG
 
@@ -71,8 +72,9 @@ class LoginPage:
         LOG.debug('redirect_to_home')
         WebDriverWait(self.browser.selenium, self.browser.waiting_time, self.browser.poll_frequency)\
             .until(ec.title_contains(self.home_title))
-        # WebDriverWait(self.browser.selenium, self.browser.waiting_time, self.browser.poll_frequency)\
-        #     .until(ec.invisibility_of_element_located((By.CLASS_NAME, 'main-loading')))
+        WebDriverWait(self.browser.selenium, self.browser.waiting_time, self.browser.poll_frequency)\
+            .until(ec.invisibility_of_element_located((By.CLASS_NAME, 'main-loading')))
+        time.sleep(5)
         return self
 
     def click_sign_in(self):
