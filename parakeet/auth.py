@@ -69,8 +69,8 @@ class LoginPage:
         return self
 
     def redirect_to_home(self):
-        LOG.debug('redirect_to_home')
         LOG.debug('SUELLEN WAS HERE!')
+        LOG.debug('redirect_to_home')
         WebDriverWait(self.browser.selenium, self.browser.waiting_time, self.browser.poll_frequency)\
             .until(ec.title_contains(self.home_title))
         WebDriverWait(self.browser.selenium, self.browser.waiting_time, self.browser.poll_frequency)\
