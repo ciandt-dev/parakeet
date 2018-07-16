@@ -74,6 +74,7 @@ class LoginPage:
             .until(ec.title_contains(self.home_title))
         WebDriverWait(self.browser.selenium, self.browser.waiting_time, self.browser.poll_frequency)\
             .until(ec.invisibility_of_element_located((By.CLASS_NAME, 'main-loading')))
+        LOG.debug('SUELLEN WAS HERE!')
         time.sleep(5)
         return self
 
