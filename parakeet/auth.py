@@ -77,7 +77,7 @@ class LoginPage:
         LOG.debug('redirect_to_home')
         self.browser.selenium.save_screenshot('+++++++++++++++Test01+++++++++++++++')
         WebDriverWait(self.browser.selenium, self.browser.waiting_time, self.browser.poll_frequency)\
-            .until(ec.title_contains(self.home_title))
+            .until(ec.title_is(self.home_title))
         self.browser.selenium.save_screenshot('+++++++++++++++Test02+++++++++++++++.png')
         LOG.debug('SUELLEN WAS HERE!==========================')
         page_title = self.browser.splinter.title
