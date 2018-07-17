@@ -79,6 +79,10 @@ class LoginPage:
         WebDriverWait(self.browser.selenium, self.browser.waiting_time, self.browser.poll_frequency)\
             .until(ec.invisibility_of_element_located((By.CLASS_NAME, 'main-loading')))
         time.sleep(5)
+        LOG.debug('SUELLEN WAS HERE!==========================')
+        page_title = self.browser.splinter.title
+        print(page_title)
+        LOG.debug('SUELLEN WAS HERE!==========================')
         return self
 
     def click_sign_in(self):
