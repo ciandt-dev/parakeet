@@ -72,13 +72,22 @@ class LoginPage:
         LOG.debug('SUELLEN WAS HERE!==========================')
         page_title = self.browser.splinter.title
         print(page_title)
+        self.browser.selenium.save_screenshot('+++++++++++++++Test00+++++++++++++++')
         LOG.debug('SUELLEN WAS HERE!==========================')
         LOG.debug('redirect_to_home')
+        self.browser.selenium.save_screenshot('+++++++++++++++Test01+++++++++++++++')
         WebDriverWait(self.browser.selenium, self.browser.waiting_time, self.browser.poll_frequency)\
             .until(ec.title_contains(self.home_title))
+        self.browser.selenium.save_screenshot('+++++++++++++++Test02+++++++++++++++')
+        LOG.debug('SUELLEN WAS HERE!==========================')
+        page_title = self.browser.splinter.title
+        print(page_title)
+        self.browser.selenium.save_screenshot('+++++++++++++++Test03+++++++++++++++')
+        LOG.debug('SUELLEN WAS HERE!==========================')
         WebDriverWait(self.browser.selenium, self.browser.waiting_time, self.browser.poll_frequency)\
             .until(ec.invisibility_of_element_located((By.CLASS_NAME, 'main-loading')))
         time.sleep(5)
+        self.browser.selenium.save_screenshot('+++++++++++++++Test04+++++++++++++++')
         LOG.debug('SUELLEN WAS HERE!==========================')
         page_title = self.browser.splinter.title
         print(page_title)
