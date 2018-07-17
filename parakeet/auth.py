@@ -40,6 +40,7 @@ class LoginPage:
 
     def fill_email(self, email):
         LOG.debug('fill_email')
+        self.browser.selenium.save_screenshot('Email.png')
         try:
             self.browser.find_element_by_id('identifierId').type(email)
         except TimeoutException:
@@ -51,11 +52,13 @@ class LoginPage:
 
     def click_next(self):
         LOG.debug('click_next')
+        self.browser.selenium.save_screenshot('Next.png')
         self.browser.find_element_by_id('identifierNext').click()
         return self
 
     def fill_password(self, password):
         LOG.debug('fill_password')
+        self.browser.selenium.save_screenshot('Password.png')
         self.browser.splinter.\
             is_element_visible_by_css('#password input', self.browser.waiting_time)
         self.browser.splinter.type('password', decode(password))
@@ -69,29 +72,12 @@ class LoginPage:
         return self
 
     def redirect_to_home(self):
-        LOG.debug('SUELLEN WAS HERE!==========================')
-        page_title = self.browser.splinter.title
-        print(page_title)
-        self.browser.selenium.save_screenshot('+++++++++++++++Test00+++++++++++++++.png')
-        LOG.debug('SUELLEN WAS HERE!==========================')
-        LOG.debug('redirect_to_home')
-        self.browser.selenium.save_screenshot('+++++++++++++++Test01+++++++++++++++')
+        self.browser.selenium.save_screenshot('after_time_e-mail_password.png')
         WebDriverWait(self.browser.selenium, self.browser.waiting_time, self.browser.poll_frequency)\
-            .until(ec.title_is(self.home_title))
-        self.browser.selenium.save_screenshot('+++++++++++++++Test02+++++++++++++++.png')
-        LOG.debug('SUELLEN WAS HERE!==========================')
-        page_title = self.browser.splinter.title
-        print(page_title)
-        self.browser.selenium.save_screenshot('+++++++++++++++Test03+++++++++++++++.png')
-        LOG.debug('SUELLEN WAS HERE!==========================')
+            .until(ec.title_contains(self.home_title))
+        self.browser.selenium.save_screenshot('redirect_to_home.png')
         WebDriverWait(self.browser.selenium, self.browser.waiting_time, self.browser.poll_frequency)\
             .until(ec.invisibility_of_element_located((By.CLASS_NAME, 'main-loading')))
-        time.sleep(5)
-        self.browser.selenium.save_screenshot('+++++++++++++++Test04+++++++++++++++.png')
-        LOG.debug('SUELLEN WAS HERE!==========================')
-        page_title = self.browser.splinter.title
-        print(page_title)
-        LOG.debug('SUELLEN WAS HERE!==========================')
         return self
 
     def click_sign_in(self):
