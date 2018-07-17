@@ -70,7 +70,8 @@ class LoginPage:
 
     def redirect_to_home(self):
         LOG.debug('SUELLEN WAS HERE!==========================')
-        print(self.home_title)
+        page_title = self.browser.splinter.title
+        print(page_title)
         LOG.debug('SUELLEN WAS HERE!==========================')
         LOG.debug('redirect_to_home')
         WebDriverWait(self.browser.selenium, self.browser.waiting_time, self.browser.poll_frequency)\
