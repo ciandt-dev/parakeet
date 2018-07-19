@@ -15,7 +15,7 @@ SNAPSHOT_DEBUG = 'SNAPSHOT_DEBUG'
 
 formatter = ColoredFormatter(
         "%(green)s%(asctime)s - %(name)s -%(reset)s %(log_color)s%(levelname)-8s%(reset)s"
-        " - %(magenta)s%(message)s",
+        " - %(purple)s%(message)s",
         datefmt=None,
         reset=True,
         log_colors={
